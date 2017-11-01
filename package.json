@@ -1,6 +1,6 @@
 {
   "name": "module-autoload",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Dependency autoloader.",
   "main": "register.js",
   "bin": "./module-autoload.js",
@@ -11,7 +11,13 @@
     "type": "git",
     "url": "git+https://github.com/wilsonlewis/module-autoload.git"
   },
-  "keywords": ["node", "javascript", "dependency", "module", "namespace"],
+  "keywords": [
+    "node",
+    "javascript",
+    "dependency",
+    "module",
+    "namespace"
+  ],
   "author": "Wilson Lewis <wilsonlewis@gmail.com>",
   "license": "MIT",
   "bugs": {
