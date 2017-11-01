@@ -1,3 +1,6 @@
+#!/usr/bin/env node
+'use strict'
+
 var fs = require('fs')
 var posix = require('path').posix
 var modulesPath = posix.resolve(process.cwd(), 'node_modules')
@@ -45,7 +48,7 @@ fs.writeFileSync(
 var aliases = []
 
 each(packages, function(config) {
-  each(config.autoload.aliases || {}, function(path, alias) {
+  each(config.autoload.alias || {}, function(path, alias) {
     aliases.push(
       '  "' +
         alias +
