@@ -1,6 +1,6 @@
 {
   "name": "module-autoload",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Dependency autoloader.",
   "main": "register.js",
   "bin": "./module-autoload.js",
