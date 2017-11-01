@@ -18,6 +18,8 @@ function install(path) {
   if (config.autoload) {
     packages.push(config)
   }
+
+  return config
 }
 
 function each(arr, callback) {
@@ -26,7 +28,7 @@ function each(arr, callback) {
   }
 }
 
-install(posix.resolve(process.cwd(), 'package.json'))
+const baseConfig = install(posix.resolve(process.cwd(), 'package.json'))
 
 for (var index in modules) {
   install(posix.resolve(modulesPath, modules[index], 'package.json'))
@@ -48,14 +50,18 @@ fs.writeFileSync(
 var aliases = []
 
 each(packages, function(config) {
+  const relative = posix.resolve(modulesPath, 'module-autoload')
+
   each(config.autoload.alias || {}, function(path, alias) {
-    aliases.push(
-      '  "' +
-        alias +
-        '": "' +
-        posix.resolve(modulesPath, config.name, path) +
-        '"'
-    )
+    const base =
+      config.name === baseConfig.name
+        ? posix.relative(relative, posix.resolve(process.cwd(), path))
+        : posix.relative(
+            relative,
+            posix.resolve(modulesPath, config.name, path)
+          )
+
+    aliases.push('  "' + alias + '": "' + base + '"')
   })
 })
 
