@@ -1,0 +1,24 @@
+{
+  "name": "module-autoload",
+  "version": "0.0.1",
+  "description": "Dependency autoloader.",
+  "main": "register.js",
+  "bin": "./module-autoload.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wilsonlewis/module-autoload.git"
+  },
+  "keywords": ["node", "javascript", "dependency", "module", "namespace"],
+  "author": "Wilson Lewis <wilsonlewis@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wilsonlewis/module-autoload/issues"
+  },
+  "homepage": "https://github.com/wilsonlewis/module-autoload#readme",
+  "dependencies": {
+    "module-alias": "^2.0.2"
+  }
+}
