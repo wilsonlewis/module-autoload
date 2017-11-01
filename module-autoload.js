@@ -50,16 +50,11 @@ fs.writeFileSync(
 var aliases = []
 
 each(packages, function(config) {
-  const relative = posix.resolve(modulesPath, 'module-autoload')
-
   each(config.autoload.alias || {}, function(path, alias) {
     const base =
       config.name === baseConfig.name
-        ? posix.relative(relative, posix.resolve(process.cwd(), path))
-        : posix.relative(
-            relative,
-            posix.resolve(modulesPath, config.name, path)
-          )
+        ? posix.resolve(process.cwd(), path)
+        : posix.resolve(modulesPath, config.name, path)
 
     aliases.push('  "' + alias + '": "' + base + '"')
   })
